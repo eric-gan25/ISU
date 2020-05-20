@@ -1,0 +1,74 @@
+<!--***********************************
+ *  Eric Gan and Dominic Rochon       *
+ *  ISU Project - Theory Maker        *
+ *  ICS4U                             *
+ *  Ms. Cullum                        *
+ *  Index Html File                   *
+ *                                    *
+ *  Purpose:                          *
+ *   A website that contains several  *
+ *   algorithms for different user    *
+ *   purposes. For example, the 4     *
+ *   voice harmony algorithm will     *
+ *   take the user's input of a       *
+ *   scale and a starting scale       *
+ *   degree. The program will then    *
+ *   create a triad from the user's   *
+ *   info and follow the rules of     *
+ *   writing triads in 4 voices       *
+ *   harmony.                         *
+ *                                    *
+ *  Known Issue:                      *
+ *   Resizing the window tab          *
+ *   doesn't work for the             *
+ *   drawn staves. This may be caused *
+ *   by since it is not a prexisting  *
+ *   element on the screen and instead*
+ *   is being drawn onto the screen.  *
+ *                                    *
+ *************************************-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content = "width=device-width, inital-scale = 1.0">
+    <title>
+      Theory Maker - Eric and Dominic
+    </title>
+    <link href = "style.css" rel = "stylesheet" type = "text/css" />
+    <script src = "https://unpkg.com/vexflow/releases/vexflow-min.js">
+    </script>
+  </head>
+
+  <body>
+    <!-- Top Navigation Bar -->
+    <div class = "topnav">
+      <a class = "active" href = "index.html">Home</a>
+      <a href = "4voice.html">4 Voice Harmony</a>
+      <a href = "harmonizer.html">Harmonizer</a>
+    </div>
+
+    <!-- Title Header -->
+    <h1 id = "titleHeader">
+      Theory Maker
+    </h1>
+    
+    <!-- Sub Header -->
+    <p id = "subHeader">
+      Your Personal Music Maker!
+    </p>
+    
+    <!-- Info Text -->
+    <p id = "paragraphText">
+      Made by Eric Gan and Dominic Rochon
+    </p>
+
+    <!-- Bottom Contact Information -->
+    <div class = "botBar">
+      <p id = "contactInfo">
+        To contact us for any issues or suggestions please email: egan1@ocdsb.ca or droch1@ocdsb.ca
+      </p> 
+    </div>
+  </body>
+</html>

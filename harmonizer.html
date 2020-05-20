@@ -1,0 +1,83 @@
+<!--***********************************
+ *  Eric Gan and Dominic Rochon       *
+ *  ISU Project - Theory Maker        *
+ *  ICS4U                             *
+ *  Ms. Cullum                        *
+ *  Harmonizer Html File              *
+ *                                    *
+ *************************************-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Harmonizer
+    </title>
+    <link href = "style.css" rel = "stylesheet" type = "text/css" />
+    <script src = "https://unpkg.com/vexflow/releases/vexflow-min.js">
+    </script>
+  </head>
+
+  <body>
+    <!-- Top Navigation Bar -->
+    <div class = "topnav">
+      <a href = "index.html">Home</a>
+      <a href = "4voice.html">4 Voice Harmony</a>
+      <a class = "active" href = "harmonizer.html">Harmonizer</a>
+    </div>
+    
+    <!-- Title Header -->
+    <h1 id = "titleHeader">
+      Harmonizer
+    </h1>
+
+    <div id = "harmonizerResize">
+      <!-- Entering key signatures, I only uncluded the ones that go up to four flats and four sharps because let's be honest, nobody uses the ones that go beyond that. Also, I only did major keys since doing it in minor would be a whole other thing that I don't have time for-->
+      <div id = "keySignature">
+        <label for = "keySig"> Enter key signature </label>
+      </div>
+
+      <div class = "bottomAlignment">
+        <div id = "keySignature" class = "custom-select" style = "width: 180px;">
+          <select id = "keySig">
+            <option value="Ab">A&#9837</option>
+            <option value="A">A</option>
+            <option value="Bb">B&#9837</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="Eb">E&#9837</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+          </select>
+        </div>
+      </div>
+
+      <div class = "bottomAlignment">
+        <!-- Text box for entering the notes! -->
+        <div id = "inputText">
+          <label for = "inNotes"> Enter base notes (Input format: c/2,e/2,f/2 etc... no spaces!) </label>
+        </div>
+
+        <div>
+          <form>
+            <input class = "inputNotes" type = "text" id = "notes" name = "notes" value = "a/2,d/3,e/3,a/2"><br>
+          </form> 
+        </div>
+      </div>
+
+      <div>
+        <!-- Submit button -->
+        <button onclick = "bigDraw()" id = "buttonHarmonizer">Submit</button>
+      </div>
+
+      <!-- This div is all of the VexFlow music notation -->
+      <div id = "boo"></div>
+    </div>
+    
+    <script src="script.js">
+    </script>
+  </body>
+</html>
