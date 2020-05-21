@@ -1217,11 +1217,11 @@ function octaveIdentifier()
       //                                  3                     1
       //                                  1                     3
     
-      // Condition of when the moreThanOctave variable is greater or equal than 1.
+      // Condition of when the moreThanOctave variable is equal to 1.
       // This is used to re-check if the soprano note and alto note are within an octave range.
       // Example: Original note position: Soprano - g/4. Alto - e/3. Tenor - c/4.        
-      //          Then after checking, the note position would be: Soprano - g/4. Alto - c/4. Tenor - e/3.                                                         //          Then checking one more time if the soprano and alto position are within an octave range to further verify the notes.   
-      if (moreThanOctave >= 1)
+      //          Then after checking, the note position would be: Soprano - g/4. Alto - c/4. Tenor - e/3.          //          Then checking one more time if the soprano and alto position are within an octave range to further verify the notes.   
+      if (moreThanOctave == 1)
       {
         // First looks at 5 and 1 at the position : 
         //                                            5
@@ -1531,9 +1531,9 @@ function octaveIdentifier()
       //                                  5                     1
       //                                  1                     5
 
-      // Condition of when the moreThanOctave variable is greater or equal than 1.
+      // Condition of when the moreThanOctave variable is equal to 1.
       // This is used to re-check if the soprano note and alto note are within an octave range.
-      if (moreThanOctave >= 1)
+      if (moreThanOctave == 1)
       {
         // First looks at 3 and 5 at the position : 
         //                                            3
@@ -1973,9 +1973,9 @@ function octaveIdentifier()
       //                                  3                     5
       //                                  5                     3
     
-      // Condition of when the moreThanOctave variable is greater or equal than 1.
+      // Condition of when the moreThanOctave variable is equal to 1.
       // This is used to re-check if the soprano note and alto note are within an octave range.  
-      if (moreThanOctave >= 1)
+      if (moreThanOctave == 1)
       {
         // First looks at 1 and 3 at the position : 
         //                                            1
@@ -2285,9 +2285,9 @@ function octaveIdentifier()
       //                                  1                     5
       //                                  5                     1
 
-      // Condition of when the moreThanOctave variable is greater or equal than 1.
+      // Condition of when the moreThanOctave variable is equal to 1.
       // This is used to re-check if the soprano note and alto note are within an octave range.
-      if (moreThanOctave >= 1)
+      if (moreThanOctave == 1)
       {
         // First looks at 3 and 1 at the position : 
         //                                            3
