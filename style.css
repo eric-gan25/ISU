@@ -56,15 +56,15 @@ body
 /* Propreties for id buttonScale */
 #buttonScale
 {
-  margin-left: 44%;
-  display: inline-block;
+  margin: auto;
+  display: block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Propreties for id buttonDegree */
 #buttonDegree
 {
-  margin-left: 44%;
+  margin: auto;
   display: block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -74,13 +74,12 @@ body
 {
   height: 75px;
   width: 100px;
-  margin-top: 3px;
   background-color: steelblue;
   border: none;
   color: grey;
   text-align: center;
-  margin-left: 39.5%;
-  display: inline-block;
+  margin-top: 3px;
+  display: block;
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -93,10 +92,9 @@ body
   margin-top: 3px;
   background-color: steelblue;
   border: none;
-  margin-left: 3px;
   color: white;
   text-align: center;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -109,18 +107,23 @@ body
   margin-top: 3px;
   background-color: steelblue;
   border: none;
-  margin-left: 3px;
+  margin: auto;
   color: grey;
   text-align: center;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Properties for id normalButtons */
+#normalButtons
+{
+  text-align: center;
 }
 
 /* Propreties for id keySignature */
 #keySignature
 {
-  margin-left: 45%;
   display: inline-block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -128,7 +131,6 @@ body
 /* Properties for class inputNotes */
 .inputNotes
 {
-  margin-left: 45.75%;
   display: inline-block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: lightblue;
@@ -138,16 +140,14 @@ body
 /* Properties for id inputText */
 #inputText
 {
-  margin-left: 37.5%;
-  display: inline-block;
+  width: 450px;
+  margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Properties for id buttonHarmonizer */
 #buttonHarmonizer
 {
-  margin-left: 47.6%;
-  display: inline-block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 75px;
   width: 100px;
@@ -159,9 +159,16 @@ body
   font-size: 16px;
 }
 
+/* Properties for id harmonizerResize */
+#harmonizerResize
+{
+  text-align: center;
+}
+
 /* Properties for class bottomAlignment */
 .bottomAlignment
 {
+  text-align: center;
   margin-bottom: 0.5%;
 }
 
@@ -366,6 +373,6 @@ body
   }
   #harmonizerResize
   {
-    width: 100%;
+    width: 360px;
   }
 }
