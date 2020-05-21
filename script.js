@@ -2610,8 +2610,8 @@ function bigDraw(){
   context.rect(0, 0, 1050, 1050, { stroke: 'none', fill: 'lightblue' });
 
   // Creates the staves
-  var stave1 = new VF.Stave(565, 0, 400);
-  var stave2 = new VF.Stave(565, 100, 400);
+  var stave1 = new VF.Stave(325, 0, 400);
+  var stave2 = new VF.Stave(325, 100, 400);
 
   //Add clefs to the staves
   stave1.addClef("treble");
