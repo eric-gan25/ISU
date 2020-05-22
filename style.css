@@ -280,7 +280,7 @@ body
   width: 100%;
 }
 
-/* Properties for elements on the screen display that changes depending on the screen width */
+/* Width for elements on the screen display change depending on the display width */
 @media screen and (max-width:959px)
 {
   #titleHeader

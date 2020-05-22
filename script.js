@@ -1028,7 +1028,7 @@ function octaveIdentifier()
         }
 
         // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-        // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
+        // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
         // Even if the counter is more than 8 we will still assign the fifth note to the soprano position and the third note to the alto position. This is because there is still a chance that the fifth note and extra root note are within an octave range, and the third note and the extra root note are also within an octave range.
         // Example: Soprano - g/4. Alto - e/3. Tenor - c/4.                                                                      
         // In this case g/4 and e/3 are not within an octave range. However, e/3 and c/4 are and c/4 and g/4 are also within an octave range. 
@@ -1037,12 +1037,12 @@ function octaveIdentifier()
         {
           if (positionArray[i] == fifthNote)
           {
-            if (counter < 8)
+            if (counter <= 8)
             {
               phSoprano = fifthNote;
               phAlto = thirdNote;          
             }
-            else if (counter >= 8)
+            else if (counter > 8)
             {
               phSoprano = fifthNote;
               phAlto = thirdNote;
@@ -1066,19 +1066,19 @@ function octaveIdentifier()
         }
 
         // Find how many notes are between the starting position and the larger note(the third note in this case).
-        // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
+        // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
         // Even if the counter is more than 8 we will still assign the third note to the soprano position and the fifth note to the alto position. This is because there is still a chance that the third note and extra root note are within an octave range, and the fifth note and the extra root note are also within an octave range. 
         // So we will still assign the values as usual but we will increase our moreThanOctave variable.
         for (i = startingPosition; i < positionArray.length; i++)
         {
           if (positionArray[i] == thirdNote)
           {
-            if (counter < 8)
+            if (counter <= 8)
             {
               phSoprano = thirdNote;
               phAlto = fifthNote;            
             }
-            else if (counter >= 8)
+            else if (counter > 8)
             {
               phSoprano = thirdNote;
               phAlto = fifthNote;
@@ -1154,17 +1154,17 @@ function octaveIdentifier()
           }
           
           // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the third note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the third note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == extRootNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = extRootNote;
                 phTenor = thirdNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -1185,17 +1185,17 @@ function octaveIdentifier()
           }
           
           // Find how many notes are between the starting position and the larger note(the third note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the alto position and the extra root note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the alto position and the extra root note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == thirdNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = thirdNote;
                 phTenor = extRootNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -1243,18 +1243,18 @@ function octaveIdentifier()
             }
           
             // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the fifth note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the fifth note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == extRootNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = extRootNote;
                   phAlto = fifthNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -1278,18 +1278,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the extra root note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the extra root note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == fifthNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = fifthNote;
                   phAlto = extRootNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -1353,18 +1353,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the third note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = fifthNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE@");
                   phSoprano = "";
@@ -1388,18 +1388,18 @@ function octaveIdentifier()
             }
             
             // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == fifthNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = fifthNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE!");
                   phSoprano = "";
@@ -1468,17 +1468,17 @@ function octaveIdentifier()
           }
 
           // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the extra root note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the extra root note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == fifthNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = fifthNote;
                 phTenor = extRootNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE#");
               }
@@ -1499,17 +1499,17 @@ function octaveIdentifier()
           }
 
           // Find how many notes are between the starting position and the larger note(the extra root note note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the fifth note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the fifth note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == extRootNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = extRootNote;
                 phTenor = fifthNote;       
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE$");
               }
@@ -1555,18 +1555,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == extRootNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = extRootNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE%");
                   phSoprano = "";
@@ -1590,18 +1590,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the third note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = extRootNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE^");
                   phSoprano = "";
@@ -1665,18 +1665,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the third note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = fifthNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE&");
                   phSoprano = "";
@@ -1700,18 +1700,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == fifthNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = fifthNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE*");
                   phSoprano = "";
@@ -1786,19 +1786,19 @@ function octaveIdentifier()
         }
 
         // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-        // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
+        // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
         // Even if the counter is more than 8 we will still assign the extra root note to the soprano position and the third note to the alto position. This is because there is still a chance that the extra root note note and fifth note are within an octave range, and the fifth note and the third note are also within an octave range.
         // So we will still assign the values as usual but we will increase our moreThanOctave variable.
         for (i = startingPosition; i < positionArray.length; i++)
         {
           if (positionArray[i] == extRootNote)
           {
-            if (counter < 8)
+            if (counter <= 8)
             {
               phSoprano = extRootNote;
               phAlto = thirdNote;
             }
-            else if (counter >= 8)
+            else if (counter > 8)
             {
               phSoprano = extRootNote;
               phAlto = thirdNote;
@@ -1822,19 +1822,19 @@ function octaveIdentifier()
         }
       
         // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-        // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
+        // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
         // Even if the counter is more than 8 we will still assign the third note to the soprano position and the extra root note to the alto position. This is because there is still a chance that the extra root note note and fifth note are within an octave range, and the fifth note and the third note are also within an octave range.
         // So we will still assign the values as usual but we will increase our moreThanOctave variable.
         for (i = startingPosition; i < positionArray.length; i++)
         {
           if (positionArray[i] == thirdNote)
           {
-            if (counter < 8)
+            if (counter <= 8)
             {
               phSoprano = thirdNote;
               phAlto = extRootNote;  
             }
-            else if (counter >= 8)
+            else if (counter > 8)
             {
               phSoprano = thirdNote;
               phAlto = extRootNote;
@@ -1910,17 +1910,17 @@ function octaveIdentifier()
           }
 
           // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the third note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the third note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == fifthNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = fifthNote;
                 phTenor = thirdNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -1941,17 +1941,17 @@ function octaveIdentifier()
           }
         
           // Find how many notes are between the starting position and the larger note(the third note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the alto position and the fifth note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the alto position and the fifth note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == thirdNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = thirdNote;
                 phTenor = fifthNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -1997,18 +1997,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == extRootNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = extRootNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2032,18 +2032,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the third note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = extRootNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2107,18 +2107,18 @@ function octaveIdentifier()
             }
           
             // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the fifth note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the fifth note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == extRootNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = extRootNote;
                   phAlto = fifthNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2142,18 +2142,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the extra root note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the extra root note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == fifthNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = fifthNote;
                   phAlto = extRootNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2222,17 +2222,17 @@ function octaveIdentifier()
           }
 
           // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the extra root note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the alto position and the extra root note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == fifthNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = fifthNote;
                 phTenor = extRootNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -2253,17 +2253,17 @@ function octaveIdentifier()
           }
 
           // Find how many notes are between the starting position and the larger note(the extra root note note in this case).
-          // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the fifth note to the tenor position.
+          // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the alto position and the fifth note to the tenor position.
           for (i = startingPosition; i < positionArray.length; i++)
           {
             if (positionArray[i] == extRootNote)
             {
-              if (counter < 8)
+              if (counter <= 8)
               {
                 phAlto = extRootNote;
                 phTenor = fifthNote;
               }
-              else if (counter >= 8)
+              else if (counter > 8)
               {
                 console.log("MORE THAN AN OCTAVE");
               }
@@ -2309,18 +2309,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the extra root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the extra root note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == extRootNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = extRootNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2344,18 +2344,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the third root note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the extra root note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = extRootNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2419,18 +2419,18 @@ function octaveIdentifier()
             }
           
             // Find how many notes are between the starting position and the larger note(the third note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the third note can be assigned to the soprano position and the fifth note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == thirdNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = thirdNote;
                   phAlto = fifthNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
@@ -2454,18 +2454,18 @@ function octaveIdentifier()
             }
 
             // Find how many notes are between the starting position and the larger note(the fifth note in this case).
-            // If the counter is less than 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
+            // If the counter is less than or equal to 8 that means the notes are within an octave range and the fifth note can be assigned to the soprano position and the third note to the alto position.
             // However, if the counter is more or equal to 8 all of the placeholder variables will be reset to nothing.
             for (i = startingPosition; i < positionArray.length; i++)
             {
               if (positionArray[i] == fifthNote)
               {
-                if (counter < 8)
+                if (counter <= 8)
                 {
                   phSoprano = fifthNote;
                   phAlto = thirdNote;         
                 }
-                else if (counter >= 8)
+                else if (counter > 8)
                 {
                   console.log("MORE THAN AN OCTAVE");
                   phSoprano = "";
